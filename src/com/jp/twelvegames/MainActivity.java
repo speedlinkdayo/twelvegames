@@ -1,12 +1,9 @@
 package com.jp.twelvegames;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
 
 import com.jp.twelvegames.holder.Instance;
 
@@ -19,6 +16,7 @@ public class MainActivity extends Activity {
 		
 	}
 
+	//TODO これ猫ちゃん動作検証のゴミ
 	public void onClick(View v){
 
 	// OpenGLスレッド開始(onDrawFrameが定期的に呼ばれるようになる)
@@ -31,7 +29,17 @@ public class MainActivity extends Activity {
 	Instance.myGameThread.mActive = true;
 	//Instance.myDBThread.start();
 }
+	//SurfaceViewのサンプル起動
+	public void onClick_drawSample(View v){
+		Intent intent = new Intent(this,com.jp.twelvegames.SampleDrawActivity.class);
+		startActivity(intent);	
+	}
 
+	//タツゲームスタート
+	public void onClick_tatu(View v){
+		Intent intent = new Intent(this,com.jp.twelvegames.TatuActivity.class);
+		startActivity(intent);
+	}
 @Override
 public void onResume() {
 	super.onResume();
@@ -41,7 +49,7 @@ public void onResume() {
 @Override
 public void onPause() {
 	super.onPause();
-	Instance.myGameThread.mActive = false;
+	//Instance.myGameThread.mActive = false;
 
 	// ゲームを閉じる際にメモリ上に残っているオブジェクトを削除する。
 	// ゲームを閉じる＝終了したとみなします。

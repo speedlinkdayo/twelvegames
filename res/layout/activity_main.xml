@@ -15,11 +15,33 @@
         android:text="@string/hello_world" />
 
     <Button
-        android:id="@+id/button1"
-        android:onClick="onClick"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/textView1"
+        android:layout_marginTop="14dp"
+        android:onClick="onClick_drawSample"
+        android:text="drawSample" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="18dp"
+        android:onClick="onClick"
         android:text="ねこ" />
+
+    <Button
+        android:id="@+id/btntatu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="21dp"
+        android:onClick="onClick_tatu"
+        android:text="たつ" />
 
 </RelativeLayout>
