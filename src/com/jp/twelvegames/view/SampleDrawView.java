@@ -24,7 +24,7 @@ public class SampleDrawView extends SurfaceView implements
 	}
 
 	public SampleDrawView(Context context, AttributeSet attrs) {
-		super(context);
+		super(context,attrs);
 		init();
 	}
 
@@ -93,7 +93,7 @@ public class SampleDrawView extends SurfaceView implements
 			p.setAlpha(255 - i * 10);
 			int x = data[i][0];
 			int y = data[i][1];
-			RectF r = new RectF(x - 50, -50, x + 50, y + 50);
+			RectF r = new RectF(x - 50, y-50, x + 50, y + 50);
 			c.drawArc(r, 0f, 360f, true, p);
 		}
 		holder.unlockCanvasAndPost(c);
