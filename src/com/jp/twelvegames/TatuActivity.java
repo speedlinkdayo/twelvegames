@@ -32,6 +32,7 @@ public class TatuActivity extends Activity {
 		height = size.y;
 		setContentView(R.layout.tatu_game);
 		view = (TatuGameView) this.findViewById(R.id.tatuGameView01);
+		view.start();
 	}
 	
 }
