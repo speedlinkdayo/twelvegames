@@ -99,7 +99,7 @@ public class TatuGameView extends SurfaceView implements SurfaceHolder.Callback 
 	public void start() {
 		try {
 			executor.shutdown();
-		} catch (Exception e) {
+		} catch (Exception e) {}
 			enemies.init();
 			ball.init();
 			point = 0;
@@ -109,11 +109,24 @@ public class TatuGameView extends SurfaceView implements SurfaceHolder.Callback 
 			executor.scheduleAtFixedRate(new Runnable() {
 				@Override
 				public void run() {
+					enemies.move();
+					chara.move();
+					ball.move();
+					if(ball.isFlying()){
+						point += enemies.checkHit(ball.getCenter()) * 10;
+					}
+					if(enemies.isFinished()){
+						gameOver();
+					}
+					if(SystemClock.currentThreadTimeMillis() -start_time > GAME_TIMES){
+						gameOver();
+					}
+					draw();
 				}
 			}, 100, 100, TimeUnit.MILLISECONDS);
 			showMsg("start");
 		}
-	}
+	
 
 	public void showMsg(String s) {
 		Toast toast = Toast.makeText(tatugameActivity, s, Toast.LENGTH_SHORT);

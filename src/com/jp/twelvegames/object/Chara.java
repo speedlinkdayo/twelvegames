@@ -24,6 +24,13 @@ public class Chara {
 		show_img=0;
 		throwing = false;
 	}
+	public void move(){
+		if(throwing) show_img ++;
+		if(show_img >= 10){
+			show_img = 0;
+			throwing = false;
+		}
+	}
 	public void throwing(){
 		if(throwing){
 			return;
